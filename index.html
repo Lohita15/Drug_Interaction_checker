@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Drug–Drug Interaction Checker (Refactored)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Sidebar Toggle Button -->
+  <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+
+  <!-- Sidebar History Panel -->
+  <div class="sidebar" id="historyPanel">
+    <h2>History</h2>
+    <ul id="historyList"></ul>
+    <button id="clearHistoryBtn" class="clear-history-btn">Clear History</button>
+  </div>
+
+  <!-- Main App Container -->
+  <div class="app-container with-sidebar" id="app">
+    <header class="header-row">
+      <div class="left">
+        <div class="badge"><span class="badge-dot"></span>AI-powered DDI Checker (demo)</div>
+        <h1>Drug–Drug Interaction Checker</h1>
+        <p class="subtitle">Enter medicines and let the model estimate interaction risk.</p>
+      </div>
+      <div class="right">
+        <button id="themeToggle" class="btn-ghost" title="Toggle theme">🌗</button>
+        <button id="printBtn" class="btn-ghost" title="Print results">🖨️</button>
+        <button id="exportBtn" class="btn-ghost" title="Export summary">⬇️</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="form-section">
+        <div class="form-header">
+          <div>
+            <div class="form-header-title">Medicines</div>
+            <div class="form-header-desc">Use generic or brand names. Max 5.</div>
+          </div>
+        </div>
+
+        <div id="drugInputs" class="drug-list"></div>
+
+        <div class="row gap">
+          <button id="addDrugBtn" class="add-btn" type="button">+ Add another drug</button>
+          <button id="clearAllBtn" class="btn-ghost" type="button">Clear all</button>
+          <input id="uploadMedList" type="file" accept=".txt" class="file-input" />
+        </div>
+
+        <!-- TOKEN INPUT REMOVED (server uses .env HF_TOKEN) -->
+
+        <div class="actions">
+          <button id="checkBtn" class="primary-btn" type="button">Check interactions ↻</button>
+          <span class="secondary-text">Using HF Router + Llama 3.1</span>
+        </div>
+
+        <div id="error" class="error-text hidden" role="alert"></div>
+      </section>
+
+      <section class="results-section" aria-live="polite">
+        <div class="results-header">
+          <div class="results-title">Results</div>
+          <div id="overallRiskBadge" class="risk-badge hidden" aria-hidden="true"></div>
+        </div>
+        <div id="resultBody" class="result-body">
+          <p class="secondary-text">Add medicines and click <strong>Check interactions</strong>.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p><strong>Disclaimer:</strong> This is a demo tool and not medical advice. Always consult a healthcare professional.</p>
+    </footer>
+  </div>
+
+  <!-- App Logic -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
