@@ -168,7 +168,7 @@ This project is an AI-assisted educational demonstration and should not be used 
 
 ## 👩‍💻 Author
 
-**Lohitha Reddy**
+**Lohita Reddy**
 
 Computer Science Engineering Student
 
